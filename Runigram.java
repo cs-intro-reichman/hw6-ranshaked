@@ -140,14 +140,20 @@ public class Runigram {
 	 * v = alpha * v1 + (1 - alpha) * v2, where v1 and v2 are the corresponding r, g, b
 	 * values in the two input color.
 	 */
-    int r = (int) (alpha * c1.getRed() + (1 - alpha) * c2.getRed());
-    int g = (int) (alpha * c1.getGreen() + (1 - alpha) * c2.getGreen());
-    int b = (int) (alpha * c1.getBlue() + (1 - alpha) * c2.getBlue());
-	r = Math.max(0, Math.min(255, r));
-    g = Math.max(0, Math.min(255, g));
-    b = Math.max(0, Math.min(255, b));
-
-		return new Color(r,g,b);
+	if(alpha>1)
+	{
+		return c1;
+	}
+	int r1 = c1.getRed();
+	int r2 = c2.getRed();
+	double Nr = (alpha*(double)r1) + ((1-alpha)*(double)r2);
+	int g1 = c1.getGreen();
+	int g2 = c2.getGreen();
+	double Ng = (alpha*(double)g1) + ((1-alpha)*(double)g2);
+	int b1 = c1.getBlue();
+	int b2 = c2.getBlue();
+	double Nb = (alpha*(double)b1) + ((1-alpha)*(double)b2);
+		return new Color((int)Nr,(int)Ng,(int)Nb);
 	}
 	public static Color[][] blend(Color[][] image1, Color[][] image2, double alpha) {
 		
@@ -163,10 +169,11 @@ public class Runigram {
 		{
 			for(int j = 0 ; j < image1[0].length; j++)
 			{
+	
 				image3[i][j] = blend(image1[i][j],image2[i][j], alpha);
 			}
 		}
-		return image1;
+		return image3;
 	}
 	public static void morph(Color[][] source, Color[][] target, int n) {
 			/**
