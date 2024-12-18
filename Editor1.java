@@ -12,6 +12,7 @@ import java.awt.Color;
 public class Editor1 {
 
 	public static void main (String[] args){
+		System.out.println();
 		String fileName = args[0];
 		String action = args[1];
 		// Reads the input image and creates an empty output image
