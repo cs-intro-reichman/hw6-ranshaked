@@ -65,7 +65,7 @@ public class Runigram {
 	public static Color[][] flippedHorizontally(Color[][] image) {
 		/**
 	 * Returns an image which is the horizontally flipped version of the given image. 
-	 */
+	 */	if (image == null || image.length == 0 || image[0].length == 0) { return new Color[0][0];}
 		Color[][] image1 = new Color[image.length][image[0].length];
 		for(int i = 0 ; i < image1.length ; i++)
 		{
@@ -80,6 +80,7 @@ public class Runigram {
 		/**
 	 * Returns an image which is the vertically flipped version of the given image. 
 	 */
+	if (image == null || image.length == 0 || image[0].length == 0) { return new Color[0][0];}
 		Color[][] image1 = new Color[image.length][image[0].length];
 		for(int i = 0 ; i < image1[0].length ; i++)
 		{
@@ -101,6 +102,7 @@ public class Runigram {
 		return new Color(lum, lum, lum);
 	}
 	public static Color[][] grayScaled(Color[][] image) {
+		if (image == null || image.length == 0 || image[0].length == 0) { return new Color[0][0];}
 		Color[][] image1 = new Color[image.length][image[0].length];
 		for(int i = 0 ; i < image.length ; i++)
 		{
@@ -116,6 +118,7 @@ public class Runigram {
 	 * Returns an image which is the scaled version of the given image. 
 	 * The image is scaled (resized) to have the given width and height.
 	 */
+	if (image == null || image.length == 0 || image[0].length == 0) { return new Color[0][0];}
 		Color[][]image1 = new Color[height][width];
 		double newH =(double)image.length/height;
 		double newW =(double)image[0].length/width;
@@ -154,6 +157,7 @@ public class Runigram {
 	 * and (1 - alpha) part the second image.
 	 * The two images must have the same dimensions.
 	 */
+	if (image1 == null || image2 == null || image1.length != image2.length || image1[0].length != image2[0].length) { return new Color[0][0];}
 		Color[][] image3 = new Color[image1.length][image1[0].length];
 		for(int i = 0 ; i < image1.length ; i++)
 		{
